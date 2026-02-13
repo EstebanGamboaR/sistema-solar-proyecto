@@ -1,9 +1,7 @@
 package com.mycompany.sistemasolar;
 
 /**
- * INTERFAZ PLANETA
- * Define QUÉ métodos debe tener un planeta (el contrato)
- * @author Persona 1
+ * Interfaz que define los métodos que debe tener un planeta
  */
 public interface Planeta {
     

@@ -1,9 +1,7 @@
 package com.mycompany.sistemasolar;
 
 /**
- * CLASE ABSTRACTA CUERPOCELESTE
- * Base para todos los cuerpos celestes (planetas)
- * @author Persona 1
+ * Clase abstracta que representa un cuerpo celeste
  */
 public abstract class CuerpoCeleste {
     
@@ -15,26 +13,21 @@ public abstract class CuerpoCeleste {
     // Constructor
     public CuerpoCeleste(String nombre, double tamanio, double distanciaAlSol) {
         this.nombre = nombre;
-        this.tamanio = (tamanio < 0) ? 0 : tamanio;
-        this.distanciaAlSol = (distanciaAlSol < 0) ? 0 : distanciaAlSol;
+        this.tamanio = (tamanio >= 0) ? tamanio : 0;
+        this.distanciaAlSol = (distanciaAlSol >= 0) ? distanciaAlSol : 0;
     }
     
-    // Getters
+    // Getters y Setters
     public String getNombre() {
         return nombre;
     }
     
-    public double getTamanio() {
-        return tamanio;
-    }
-    
-    public double getDistanciaAlSol() {
-        return distanciaAlSol;
-    }
-    
-    // Setters con validación
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    
+    public double getTamanio() {
+        return tamanio;
     }
     
     public void setTamanio(double tamanio) {
@@ -43,21 +36,26 @@ public abstract class CuerpoCeleste {
         }
     }
     
+    public double getDistanciaAlSol() {
+        return distanciaAlSol;
+    }
+    
     public void setDistanciaAlSol(double distanciaAlSol) {
         if (distanciaAlSol >= 0) {
             this.distanciaAlSol = distanciaAlSol;
         }
     }
     
-    // Métodos de comparación
+    // Método para comparar tamaños
     public boolean esMasGrandeQue(CuerpoCeleste otro) {
         return this.tamanio > otro.tamanio;
     }
     
+    // Método para comparar distancias
     public boolean estaMasLejosQue(CuerpoCeleste otro) {
         return this.distanciaAlSol > otro.distanciaAlSol;
     }
     
-    // Método abstracto (las clases hijas deben implementarlo)
+    // Método abstracto
     public abstract void mostrarInfo();
 }
